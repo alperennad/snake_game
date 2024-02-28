@@ -48,16 +48,15 @@ void generate_map()
         {
             if (!draw_snake(i,j))
             {
-            if (i == 0 ||i == ROWS - 1)
-                printf("#");
-            else if(j == 0 || j == COLS - 1)
-                printf("H");
-            else if (i == foodX && j == foodY)
-                printf("F");
-            else
-                printf(" ");
+                if (i == 0 ||i == ROWS - 1)
+                    printf("#");
+                else if(j == 0 || j == COLS - 1)
+                    printf("H");
+                else if (i == foodX && j == foodY)
+                    printf("F");
+                else
+                    printf(" ");
             }
-            
         }
         printf("\n");
     }
@@ -71,7 +70,6 @@ void    generate_food()
             foodX = rand() % ROWS - 2;
         if(foodY <= 0)
             foodY = rand() % COLS - 2;
-    
 }
 
 void    move_check()
@@ -149,10 +147,8 @@ void    snake_move()
         tailY[b] = COLS - 1;
         b++;
     }
-
-
-
 }
+
 int main()
 {
     while (!isGameOver)
@@ -161,10 +157,9 @@ int main()
         move_check();
         generate_map();
         snake_move();
-
         usleep(500);
     }
+    
     while (isGameOver)
         return 0;
-
 }
