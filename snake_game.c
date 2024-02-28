@@ -16,7 +16,7 @@
 int isGameOver = 0, isEaten = 0;
 int foodX,foodY;
 int snakeX = 14, snakeY = 29;
-int tailX[30*60], tailY[30*60];
+int tailX[ROWS * COLS], tailY[ROWS * COLS];
 
 int    draw_snake(int i, int j)
 {
@@ -48,9 +48,9 @@ void generate_map()
         {
             if (!draw_snake(i,j))
             {
-            if (i == 0 ||i == 29)
+            if (i == 0 ||i == ROWS - 1)
                 printf("#");
-            else if(j == 0 || j == 59)
+            else if(j == 0 || j == COLS - 1)
                 printf("H");
             else if (i == foodX && j == foodY)
                 printf("F");
@@ -68,9 +68,9 @@ void    generate_food()
 {   //rastgele konuma yemek spawnlıyor
     isGameOver = 0;
         if (foodX <= 0)
-            foodX = rand() % 28;
+            foodX = rand() % ROWS - 2;
         if(foodY <= 0)
-            foodY = rand() % 58;
+            foodY = rand() % COLS - 2;
     
 }
 
