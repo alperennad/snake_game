@@ -15,7 +15,7 @@
 
 int isGameOver = 0, isEaten = 0;
 int foodX,foodY;
-int snakeX = 14, snakeY = 29;
+int snakeX = (ROWS / 2) - 1, snakeY = (COLS / 2) - 1;
 int tailX[ROWS * COLS], tailY[ROWS * COLS];
 
 int    draw_snake(int i, int j)
